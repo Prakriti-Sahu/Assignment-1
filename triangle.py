@@ -8,30 +8,60 @@ Original file is located at
 """
 
 import matplotlib.pyplot as plt
+import numpy as np
+
+
+print(f"\n\nCoordinates of triangle ABC are: A{A}, B{B}, C{C} ")
+print(f"Coordinates of triangle PQR are: P{P}, Q{Q}, R{R} ")
+
+a1 = np.array([[1, 1, 1], [4, 1, -3], [3, -3, 1]])
+print(f"\n\nTriangle ABC:\n{a1}")
+area_abc=0.5*np.linalg.det(a1)
+print(f"\nArea of Triangle ABC= {area_abc}")
+
+a2 = np.array([[1, 1, 1], [4, -3, 1], [3, 1, -3]])
+print(f"\n\nTriangle PQR:\n{a2}")
+area_pqr=0.5*np.linalg.det(a2)
+print(f"\nArea of Triangle PQR= {area_pqr}\n\n")
+
+
+
+### GRAPH DISPLAY
 
 # AB
-x1 = [4,1]
-y1 = [3,-3]
-# plotting  
-plt.plot(x1, y1,color='blue')
+plt.plot([4,1],[3,-3],color='blue', label="AB,PR" )
 # BC
-x2 = [1,-3]
-y2 = [-3,1]
-# plotting  
-plt.plot(x2, y2,color='red')
+plt.plot([1,-3],[-3,1],color='red', label="BC,QR")
 # AC
-x1 = [4,-3]
-y1 = [3,1]
-# plotting 
-plt.plot(x1, y1,color='green')
-
-plt.annotate("A,P", (4, 3))
-plt.annotate("B,R", (1, -3))
-plt.annotate("C,Q", (-3, 1))
+plt.plot([4,-3],[3,1],color='green', label="AC,PQ")
 
 
-plt.ylabel('$y-axis$')
+A=np.array([4,3])
+B=np.array([1,-3])
+C=np.array([-3,1])
+
+P=np.array([4,3])
+Q=np.array([-3,1])
+R=np.array([1,-3])
+
+ 
+#annotations
+quad_coords = np.vstack((A,B,C)).T
+plt.scatter(quad_coords[0,:], quad_coords[1,:])
+vert_labels = ['A,P','B,R','C,Q']
+for i, txt in enumerate(vert_labels):
+    plt.annotate(txt, # this is the text
+                 (quad_coords[0,i], quad_coords[1,i]), # this is the point to label
+                 textcoords="offset points", # how to position the text
+                 xytext=(0,10), # distance from text to points (x,y)
+                 ha='center') # horizontal alignment can be left, right or center
+
+
 plt.xlabel('$x-axis$')
-plt.grid() 
-plt.axis('equal')
+plt.ylabel('$y-axis$')
+plt.legend(loc='best')
+plt.grid()
+plt.xlim(-5,5)
+plt.ylim(-5,5)
+plt.savefig('triangle.png')
 plt.show()
