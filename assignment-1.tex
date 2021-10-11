@@ -118,7 +118,7 @@ Let the points be-
 \vec{A} = \myvec{4\\3}, \vec{B} =\myvec{1\\-3}, \vec{C} =\myvec{-3\\1}
 \end{align}
 \begin{align}
-\vec{P} =\myvec{4\\3}, \vec{Q} =\myvec{-3\\1}, \vec{R} =\myvec{1\\-3}   
+\vec{P} =\myvec{4\\3}, \vec{Q} =\myvec{-3\\1}, \vec{R} =\myvec{1\\-3} 
 \end{align}
 Area of a $\triangle$ with the vertices
 $\vec{A}, \vec{B}, \vec{C}$ is
@@ -127,28 +127,28 @@ $\vec{A}, \vec{B}, \vec{C}$ is
 \mathbf{\Delta = \frac{1}{2}}
 \mydet{1 & 1 & 1\\ \vec{A} & \vec{B} & \vec{C} }
 \end{align}
-For $\vec{A} = \myvec{x_{1}\\y_{1}}, \vec{B} =\myvec{x_{2}\\y_{2}}, \vec{C} =\myvec{x_{3}\\y_{3}}$,
+\begin{equation}
+For \vec{A} = \myvec{x_{1}\\y_{1}}, \vec{B} =\myvec{x_{2}\\y_{2}}, \vec{C} =\myvec{x_{3}\\y_{3}},
+\end{equation}
 \begin{align}
 \label{eq:area_tri_2}
 \mathbf{\Delta = \frac{1}{2}\mydet{1 & 1 & 1\\ x_{1}& x_{2} & x_{3}\\ y_{1} & y_{2} & y_{3}}}
 \end{align}
-$\therefore\Delta ABC=\frac{1}{2}\mydet{1 & 1 & 1\\ 4 & 1 & -3\\ 3 & -3& 1}$
-\\\\\\
-$\xrightarrow[]{C1\leftarrow C1-C3}\frac{1}{2}\mydet{0 & 1 & 1\\ 7 & 1 & -3\\ 2 & -3 & 1}$
-\\\\\\
-$\xrightarrow[]{C2\leftarrow C2-C3}\frac{1}{2}\mydet{0 & 0 & 1\\ 7 & 4 & -3\\ 2 & -4 & 1}$
-\\\\\\
-taking $4$ common from $C2$,\\
-$\\\xrightarrow[]{}\frac{4}{2}\mydet{0 & 0 & 1\\7 & 1 & -3\\2 & -1 & 1}$
-\\\\\\
+
+\begin{equation}
+\begin{split}
+&\therefore\Delta ABC \\&=\frac{1}{2}\mydet{1 & 1 & 1\\ 4 & 1 & -3\\ 3 & -3& 1}
+\xleftrightarrow[]{C1\leftrightarrow C1-C3}\frac{1}{2}\mydet{0 & 1 & 1\\ 7 & 1 & -3\\ 2 & -3 & 1}\\
+&\xleftrightarrow[]{C2\leftrightarrow C2-C3}\frac{1}{2}\mydet{0 & 0 & 1\\ 7 & 4 & -3\\ 2 & -4 & 1}
+\xleftrightarrow[]{C2\leftrightarrow C2/4}\mydet{0 & 0 & 1\\7 & 1 & -3\\2 & -1 & 1}\\\\
+\end{split}
+\end{equation}
 Expanding along the first row,
-\\$\Delta ABC=2\left [ 1(7(-1)-2(1)) \right ]$
-\\$=2\left ( -7-2 \right )$
-\\$=2\left ( -9 \right )$
-\begin{align}
-\label{eq:area_abc}
-\therefore \Delta ABC=-18
-\end{align}
+\begin{equation}\label{eq:area_abc}
+\begin{split}
+&\Delta ABC=2\left [ 1(7(-1)-2(1)) \right ]\\&=2\left ( -9 \right )=-18
+\end{split}
+\end{equation}
 For any matrix $X$, product with $I$ (identity matrix), gives matrix $X$ itself:
 \begin{align}
     XI=IX=X
@@ -165,16 +165,20 @@ $\therefore\triangle ABC$ can be transformed to $\triangle PQR$:
 \myvec{1 & 0 & 0\\ 0 & 0 & 1\\0 & 1 & 0}=
 \myvec{1 & 1 & 1\\4 & -3 & 1\\ 3 & 1 & -3}=PQR
 \end{align}
-We know, $\mydet{X}\mydet{Y}=\mydet{XY}$. From \eqref{eq:area_abc}, \eqref{eq:det of J}, \\
-$\mydet{ABC}\mydet{J}=\mydet{(ABC)J}=(-18)(-1)=18$
-\label{eq:area_pqr}
-\begin{align}
+We know,\begin{equation}\label{eq:det_prop}
+\mydet{X}\mydet{Y}=\mydet{XY}
+\end{equation}
+From equations \eqref{eq:area_abc} and \eqref{eq:det of J},
+\begin{equation}
+\mydet{ABC}\mydet{J}=\mydet{(ABC)J}=(-18)(-1)=18
+\end{equation}
+\begin{align}\label{eq:area_pqr}
 \therefore\triangle PQR=\mydet{PQR}=18
 \end{align}
 Hence, the difference in the sign in the areas of $\triangle ABC$ and $\triangle PQR$.
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.48]{triangle.png}
+	\includegraphics[scale=0.7]{triangle.png}
 \end{figure}
 \end{enumerate}
 \end{document}
