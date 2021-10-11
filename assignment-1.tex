@@ -124,44 +124,22 @@ Area of a $\triangle$ with the vertices
 $\vec{A}, \vec{B}, \vec{C}$ is
 \begin{align}
 \label{eq:area_tri_1}
-\mathbf{\Delta = \frac{1}{2}\begin{vmatrix}
-1 & 1 & 1\\ 
-\vec{A}& \vec{B} & \vec{C}
-\end{vmatrix}}
+\mathbf{\Delta = \frac{1}{2}}
+\mydet{1 & 1 & 1\\ \vec{A} & \vec{B} & \vec{C} }
 \end{align}
 For $\vec{A} = \myvec{x_{1}\\y_{1}}, \vec{B} =\myvec{x_{2}\\y_{2}}, \vec{C} =\myvec{x_{3}\\y_{3}}$,
 \begin{align}
 \label{eq:area_tri_2}
-\mathbf{\Delta = \frac{1}{2}\begin{vmatrix}
-1 & 1 & 1\\ 
-x_{1}& x_{2} & x_{3}\\ 
-y_{1} & y_{2} & y_{3}
-\end{vmatrix}}
+\mathbf{\Delta = \frac{1}{2}\mydet{1 & 1 & 1\\ x_{1}& x_{2} & x_{3}\\ y_{1} & y_{2} & y_{3}}}
 \end{align}
-$\therefore\Delta ABC=\frac{1}{2}\begin{vmatrix}
-1 & 1 & 1\\ 
-4 & 1 & -3\\ 
-3 & -3& 1
-\end{vmatrix}$
+$\therefore\Delta ABC=\frac{1}{2}\mydet{1 & 1 & 1\\ 4 & 1 & -3\\ 3 & -3& 1}$
 \\\\\\
-$\xrightarrow[]{C1\leftarrow C1-C3}\frac{1}{2}\begin{vmatrix}
-0 & 1 & 1\\ 
-7 & 1 & -3\\ 
-2 & -3 & 1
-\end{vmatrix}$
+$\xrightarrow[]{C1\leftarrow C1-C3}\frac{1}{2}\mydet{0 & 1 & 1\\ 7 & 1 & -3\\ 2 & -3 & 1}$
 \\\\\\
-$\xrightarrow[]{C2\leftarrow C2-C3}\frac{1}{2}\begin{vmatrix}
-0 & 0 & 1\\ 
-7 & 4 & -3\\ 
-2 & -4 & 1
-\end{vmatrix}$
+$\xrightarrow[]{C2\leftarrow C2-C3}\frac{1}{2}\mydet{0 & 0 & 1\\ 7 & 4 & -3\\ 2 & -4 & 1}$
 \\\\\\
 taking $4$ common from $C2$,\\
-$\\\xrightarrow[]{}\frac{4}{2}\begin{vmatrix}
-0 & 0 & 1\\ 
-7 & 1 & -3\\ 
-2 & -1 & 1
-\end{vmatrix}$
+$\\\xrightarrow[]{}\frac{4}{2}\mydet{0 & 0 & 1\\7 & 1 & -3\\2 & -1 & 1}$
 \\\\\\
 Expanding along the first row,
 \\$\Delta ABC=2\left [ 1(7(-1)-2(1)) \right ]$
@@ -179,38 +157,24 @@ Also, exchanging the columns of $I$ in the product, will exchange columns of $X$
 Let $J$ be the matrix obtained by exchanging $C2$ and $C3$ of $I$, so that
 \begin{align}
 \label{eq:det of J}
-J=\begin{bmatrix}
-1 & 0 & 0\\ 
-0 & 0 & 1\\ 
-0 & 1 & 0
-\end{bmatrix} , where \mydet J =1(0-1)=-1
+J=\myvec{1 & 0 & 0\\0 & 0 & 1\\ 0 & 1 & 0} , where \mydet J =1(0-1)=-1
 \end{align}
 $\therefore\triangle ABC$ can be transformed to $\triangle PQR$:
 \begin{align}
-\begin{bmatrix}
-1 & 1 & 1 \\ 
-4 & 1 & -3\\ 
-3 & -3 & 1
-\end{bmatrix}\begin{bmatrix}
-1 & 0 & 0\\ 
-0 & 0 & 1\\ 
-0 & 1 & 0 
-\end{bmatrix}=\begin{bmatrix}
-1 & 1 & 1\\ 
-4 & -3 & 1\\ 
-3 & 1 & -3
-\end{bmatrix}=PQR
+\myvec{1 & 1 & 1 \\ 4 & 1 & -3\\ 3 & -3 & 1}
+\myvec{1 & 0 & 0\\ 0 & 0 & 1\\0 & 1 & 0}=
+\myvec{1 & 1 & 1\\4 & -3 & 1\\ 3 & 1 & -3}=PQR
 \end{align}
-We know, $\left | X \right |\left | Y \right |=\left | XY \right |$. From \eqref{eq:area_abc}, \eqref{eq:det of J}, \\
-$\left | ABC \right |\left | J \right |=\left | (ABC)J \right |=(-18)(-1)=18$
+We know, $\mydet{X}\mydet{Y}=\mydet{XY}$. From \eqref{eq:area_abc}, \eqref{eq:det of J}, \\
+$\mydet{ABC}\mydet{J}=\mydet{(ABC)J}=(-18)(-1)=18$
 \label{eq:area_pqr}
 \begin{align}
-\therefore\triangle PQR=\left | PQR \right |=18
+\therefore\triangle PQR=\mydet{PQR}=18
 \end{align}
 Hence, the difference in the sign in the areas of $\triangle ABC$ and $\triangle PQR$.
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.5]{triangle.png}
+	\includegraphics[scale=0.48]{triangle.png}
 \end{figure}
 \end{enumerate}
 \end{document}
