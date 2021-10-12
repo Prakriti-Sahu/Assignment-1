@@ -11,6 +11,7 @@
 \usepackage{cite}
 \usepackage{enumitem}
 \usepackage{mathtools}
+\usepackage{float}
 \usepackage{listings}
     \usepackage{color}                                            %%
     \usepackage{array}                                            %%
@@ -23,6 +24,7 @@
     \usepackage{lscape}     
 \usepackage{multicol}
 \usepackage{chngcntr}
+
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
@@ -56,10 +58,7 @@ columns=fullflexible
 \newcommand{\BEQA}{\begin{eqnarray}}
 \newcommand{\EEQA}{\end{eqnarray}}
 \newcommand{\define}{\stackrel{\triangle}{=}}
-
 \bibliographystyle{IEEEtran}
-
-
 \providecommand{\mbf}{\mathbf}
 \providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
 \providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
@@ -89,52 +88,56 @@ columns=fullflexible
 \newcommand{\cmyvec}[1]{\ensuremath{\begin{pmatrix*}[c]#1\end{pmatrix*}}}
 \newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
 \newcommand{\proj}[2]{\textbf{proj}_{\vec{#1}}\vec{#2}}
-
 \let\StandardTheFigure\thefigure
 \let\vec\mathbf
-
-
 \title{
-Assignment - 1
+SM5083 - BASICS OF PROGRAMMING
 }
 \author{ Prakriti Sahu - SM21MTECH12009}
 \maketitle
 \newpage
 \bigskip
-
 \renewcommand{\thefigure}{\theenumi}
 \renewcommand{\thetable}{\theenumi}
-
-\section{Problem}
 \renewcommand{\theequation}{\theenumi}
 \begin{enumerate}[label=\thesection.\arabic*.,ref=\thesection.\theenumi]
 \numberwithin{equation}{enumi}
-
-\item Find the areas of the triangles formed by the triads of points (4,3), (1,-3), (-3,1), and (4,3), (-3,1), (1,-3) and explain the difference of signs in the two cases.
-
+\section{PROBLEM}
+\item Find the areas of the triangles formed by the triads of points 
+\begin{align}
+\vec{A} = \myvec{4\\3}, \vec{B} =\myvec{1\\-3}, \vec{C} =\myvec{-3\\1}
+\end{align} and
+\begin{align}
+\vec{P} =\myvec{4\\3}, \vec{Q} =\myvec{-3\\1}, \vec{R} =\myvec{1\\-3} 
+\end{align} Explain the difference of signs in the two cases.\\\\
 \solution
-Let the points be-
+The given points are-
 \begin{align}
 \vec{A} = \myvec{4\\3}, \vec{B} =\myvec{1\\-3}, \vec{C} =\myvec{-3\\1}
 \end{align}
 \begin{align}
 \vec{P} =\myvec{4\\3}, \vec{Q} =\myvec{-3\\1}, \vec{R} =\myvec{1\\-3} 
 \end{align}
-Area of a $\triangle$ with the vertices
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{triangle.png}
+    \caption{Triangle ABC, Triangle PQR}
+    \label{fig:Triangles}
+\end{figure}\\
+Area of a $\triangle$ with vertices
 $\vec{A}, \vec{B}, \vec{C}$ is
 \begin{align}
 \label{eq:area_tri_1}
-\mathbf{\Delta = \frac{1}{2}}
-\mydet{1 & 1 & 1\\ \vec{A} & \vec{B} & \vec{C} }
+\Delta = \frac{1}{2}\mydet{1 & 1 & 1\\ \vec{A} & \vec{B} & \vec{C}}
 \end{align}
-\begin{equation}
-For \vec{A} = \myvec{x_{1}\\y_{1}}, \vec{B} =\myvec{x_{2}\\y_{2}}, \vec{C} =\myvec{x_{3}\\y_{3}},
-\end{equation}
+For
+\begin{align}
+\vec{A} = \myvec{x_{1}\\y_{1}}, \vec{B} =\myvec{x_{2}\\y_{2}}, \vec{C} =\myvec{x_{3}\\y_{3}},
+\end{align}
 \begin{align}
 \label{eq:area_tri_2}
-\mathbf{\Delta = \frac{1}{2}\mydet{1 & 1 & 1\\ x_{1}& x_{2} & x_{3}\\ y_{1} & y_{2} & y_{3}}}
+\Delta = \frac{1}{2}\mydet{1 & 1 & 1\\ x_{1}& x_{2} & x_{3}\\ y_{1} & y_{2} & y_{3}}
 \end{align}
-
 \begin{equation}
 \begin{split}
 &\therefore\Delta ABC \\&=\frac{1}{2}\mydet{1 & 1 & 1\\ 4 & 1 & -3\\ 3 & -3& 1}
@@ -149,21 +152,24 @@ Expanding along the first row,
 &\Delta ABC=2\left [ 1(7(-1)-2(1)) \right ]\\&=2\left ( -9 \right )=-18
 \end{split}
 \end{equation}
-For any matrix $X$, product with $I$ (identity matrix), gives matrix $X$ itself:
+For any matrix $\vec{X}$, product with $\vec{I}$ (identity matrix), gives matrix $\vec{X}$ itself,
 \begin{align}
-    XI=IX=X
+\vec{X}\vec{I}=\vec{I}\vec{X}=\vec{X} 
+\end{align} where,
+\begin{align}
+\vec{I}=\myvec{1 & 0 & 0\\0 & 1 & 0\\ 0 & 0 & 1}
 \end{align}
-Also, exchanging the columns of $I$ in the product, will exchange columns of $X$ too.\\\\
-Let $J$ be the matrix obtained by exchanging $C2$ and $C3$ of $I$, so that
+Also, exchanging the columns of $\vec{I}$ in the product, will exchange columns of $\vec{X}$ too.\\\\
+Let $\vec{J}$ be the matrix obtained by exchanging $C2$ and $C3$ of $\vec{I}$, so that
 \begin{align}
 \label{eq:det of J}
-J=\myvec{1 & 0 & 0\\0 & 0 & 1\\ 0 & 1 & 0} , where \mydet J =1(0-1)=-1
+\vec{J}=\myvec{1 & 0 & 0\\0 & 0 & 1\\ 0 & 1 & 0} , where \mydet J =1(0-1)=-1
 \end{align}
 $\therefore\triangle ABC$ can be transformed to $\triangle PQR$:
 \begin{align}
 \myvec{1 & 1 & 1 \\ 4 & 1 & -3\\ 3 & -3 & 1}
 \myvec{1 & 0 & 0\\ 0 & 0 & 1\\0 & 1 & 0}=
-\myvec{1 & 1 & 1\\4 & -3 & 1\\ 3 & 1 & -3}=PQR
+\myvec{1 & 1 & 1\\4 & -3 & 1\\ 3 & 1 & -3}=\vec{PQR}
 \end{align}
 We know,\begin{equation}\label{eq:det_prop}
 \mydet{X}\mydet{Y}=\mydet{XY}
@@ -176,9 +182,6 @@ From equations \eqref{eq:area_abc} and \eqref{eq:det of J},
 \therefore\triangle PQR=\mydet{PQR}=18
 \end{align}
 Hence, the difference in the sign in the areas of $\triangle ABC$ and $\triangle PQR$.
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[scale=0.6]{triangle.png}
-\end{figure}
+
 \end{enumerate}
 \end{document}
